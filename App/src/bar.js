@@ -1,5 +1,5 @@
 export default function bar() {
-    console.log("FUBAR!");
+    console.log("Allah Snackbar!");
 
     var config = {
         width: 800,
