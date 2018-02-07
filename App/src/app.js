@@ -1,2 +1,2 @@
-import bar from './bar';
-bar();
+import MainGame from './MainGame';
+MainGame();
