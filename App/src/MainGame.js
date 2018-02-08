@@ -29,10 +29,11 @@ class MainGame {
 
     preload(){
         console.log("PRELOAD");
+        // this.game.load.bitmapFont('mainFont', 'assets/font/font.png', 'assets/font/font.fnt');
     }
 
     create(){
-        let t = new ScreenManager(game);
+        let t = new ScreenManager();
         t.transition("Home");
     }
 }

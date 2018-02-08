@@ -10,12 +10,10 @@ class ScreenManager{
         game.scene.add("Home", HomeScreen);
         game.scene.add("World", WorldScreen);
 
+        //make a singleton out of this class
         if(!instance){
             instance = this;
         }
-
-        // to test whether we have singleton or not
-        this.time = new Date();
 
         return instance;
     }
