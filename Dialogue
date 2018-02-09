@@ -1,0 +1,92 @@
+=== SnowJam ===
+=== Dialogues ===
+
+
+-- Crybot.xcf
+
+Player: Hello? Hello? Operator?
+Game: Putting you through, please hold the line.
+Player: Sure, thanks.
+Game: Putting you through, please hold the line.
+[Menu] Hold / Hang up
+    GameHangup: Thank you for calling. 
+    GameHold: Putting you through, please hold the line.
+    Player: Great.
+    [Menu] Hold / Hang up
+      GameHangup: Thank you for calling.
+      GameHold: Putting you through, please hold the line.
+      Player: Come on already!
+      [Menu] Hold / Hang up
+      	GameHangup: Thank you for calling.
+        GameHold: Putting you through, please hold the line.
+        Player: Seriously?
+        [Menu] Hang up / Hang up
+          Player: Stupidity loop.
+
+		
+-- FuckingStopTryingToTouchMe.xcf
+		
+
+-- GranularHypnosis.xcf		
+
+Game: As I was travelling through a beam of light, so did the speed of the universe become a beacon of circular understanding. All that was is all that will be. I have seen, therefore I know the truth. The whirlwind leads the way. Movement means stability. Counterclockwise. Attempt to revert at your own risk.  
+Player: I beg your pardon?
+Game: All that was is all that will be. Attempt to revert at your own risk. The whirlwind leads the way. I have seen, therefore I know the truth. Movement means stability. As I was travelling through a beam of light, so did the speed of the universe become a beacon of circular understanding. Counterclockwise.
+Player: What do you mean?
+Game: I have seen, therefore I know the truth. Movement means stability. Counterclockwise. The whirlwind leads the way. As I was travelling through a beam of light, so did the speed of the universe become a beacon of circular understanding. Attempt to revert at your own risk. All that was is all that will be.
+[Menu] Deepen understanding / Leave
+	GameLeave: Now you know.
+GameDeepen: I have seen movement, therefore I know the universe. The truth means circular understanding. Whirlwind. The beam of light leads the universe. As I was travelling through all that will be, so did all that was become a beacon. Attempt to stability at your own risk. The way leads counterclockwise.
+[Menu] Deepen understanding / Leave
+GameLeave: Farewell. May you stay in movement.
+GameDeepen: The travelling leads stability through. The beam of truth the light. Become speed. As I was understanding through a beacon, so did all that will be. Universe at your own risk. The way leads counterclockwise. I have attempt to seen, therefore the whirlwind means circular. All that was is your own movement.
+
+
+
+
+-- HeadFuckSnowKiller.xcf	
+
+
+	
+-- IsupposedToBe.xcf
+
+Creature: Trust meeeeee… Trust meeeeeeeee…
+[Menu] See more / See less
+	Game: Yes! Down there… Follow me…
+	Player: What are you doing??
+	[Menu] See more / See less
+		Game: The truth is in the eye of the watcher.
+		Player: I don’t want to see this.
+[Menu] See more / See less
+			Game: The truth is in the eye of the watcher.
+			Player: I don’t want to see this.
+			[Menu] See more / See less
+				Game: Come here. Come closer.
+				Player: This is making me really uncomfortable. 
+[Menu] See more / See less
+Game: Why are you so uptight? Come and I’ll set you freeeeee…
+	Player: Leave me alone!
+	[Menu] See more / See less
+		GameSeemore: You wish, woos.  
+GameSeeless: Most boring experience ever. I’m done here.
+
+		
+MedEvil.jpeg	
+
+	
+SpectorTheSnowman.xcf
+
+		
+Telescope.xcf	
+
+	
+TheChineseFisherman.xcf	
+
+	
+TheInfoTabPhoneCall.xcf	
+
+	
+ZoomedInFractalGonzoJournalist.xcf	
+
+	
+speechbubble.xcf
