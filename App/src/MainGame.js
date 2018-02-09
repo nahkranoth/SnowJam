@@ -1,5 +1,6 @@
 import phaser from './vendor/phaser'
 import ScreenManager from './ScreenManager'
+import DialogueManager from './DialogueManager'
 
 class MainGame {
     constructor(){
@@ -34,6 +35,9 @@ class MainGame {
         this.load.image('background_home', 'assets/HomeCallSellNetwork.png');
         this.load.image('background_world', 'assets/HeadFuckSnowKiller.png');
         this.load.audio('audio', ['assets/audio/cavernous_dreams.mp3', 'assets/audio/spector_the_snowman.mp3']);
+
+        let d = new DialogueManager();
+        d.loadDialogues();
     }
 
     create(){
