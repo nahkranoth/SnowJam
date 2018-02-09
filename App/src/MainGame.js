@@ -30,11 +30,13 @@ class MainGame {
     preload(){
         console.log("PRELOAD");
         // this.game.load.bitmapFont('mainFont', 'assets/font/font.png', 'assets/font/font.fnt');
+        this.load.audio('audio', ['assets/audio/cavernous_dreams.mp3', 'assets/audio/spector_the_snowman.mp3']);
     }
 
     create(){
         let t = new ScreenManager();
         t.transition("Home");
+
     }
 }
 
