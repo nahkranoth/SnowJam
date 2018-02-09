@@ -29,7 +29,10 @@ class MainGame {
 
     preload(){
         console.log("PRELOAD");
-        // this.game.load.bitmapFont('mainFont', 'assets/font/font.png', 'assets/font/font.fnt');
+        this.load.bitmapFont('Font', 'assets/fonts/font.png', 'assets/fonts/font.fnt');
+        this.load.image('inventory', 'assets/inventory.png');
+        this.load.image('background_home', 'assets/HomeCallSellNetwork.png');
+        this.load.image('background_world', 'assets/HeadFuckSnowKiller.png');
         this.load.audio('audio', ['assets/audio/cavernous_dreams.mp3', 'assets/audio/spector_the_snowman.mp3']);
     }
 
