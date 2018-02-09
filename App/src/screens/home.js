@@ -1,6 +1,5 @@
 import ScreenManager from '../ScreenManager'
 import TextButton from '../components/textButton'
-import Player from '../Player'
 import Screen from '../common/screen'
 
 class HomeScreen extends Screen{

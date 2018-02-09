@@ -8,9 +8,6 @@ class WorldScreen extends Screen{
         this.background.x = 512;
         this.background.y = 384;
     }
-
-    preload(){
-    }
 }
 
 export default WorldScreen;
