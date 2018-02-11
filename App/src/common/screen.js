@@ -1,11 +1,12 @@
 import Inventory from './inventory'
 
 class Screen{
-
-    create(){
-        new Inventory(this);
+    constructor(){
     }
-
+    create(){
+    }
+    destroy(){
+    }
 }
 
 export default Screen;

@@ -32,6 +32,8 @@ class MainGame {
         console.log("PRELOAD");
         this.load.bitmapFont('Font', 'assets/fonts/font.png', 'assets/fonts/font.fnt');
         this.load.image('inventory', 'assets/inventory.png');
+        this.load.image('inventory_key', 'assets/inventoryUI/key.png');
+        this.load.image('inventory_alf_pogs', 'assets/inventoryUI/alf_pogs.png');
         this.load.image('background_home', 'assets/HomeCallSellNetwork.png');
         this.load.image('background_world', 'assets/HeadFuckSnowKiller.png');
         this.load.audio('audio', ['assets/audio/cavernous_dreams.mp3', 'assets/audio/spector_the_snowman.mp3']);
@@ -41,9 +43,8 @@ class MainGame {
     }
 
     create(){
-        let t = new ScreenManager();
-        t.transition("Home");
-
+        ScreenManager.init();
+        ScreenManager.transition("Main");
     }
 }
 

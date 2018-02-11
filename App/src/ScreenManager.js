@@ -1,28 +1,15 @@
-import HomeScreen from './screens/home'
-import WorldScreen from './screens/world'
+import MainScene from './screens/main'
 import MainGame from './MainGame'
 
-let instance = null;
-
 class ScreenManager{
-    constructor(){
-        //make a singleton out of this class
-        if(!instance){
-            instance = this;
-        }else{
-            return instance;
-        }
 
-        this.game = MainGame.game;
-        game.scene.add("Home", HomeScreen);
-        game.scene.add("World", WorldScreen);
-
-        return instance;
+    init(){
+        MainGame.game.scene.add("Main", MainScene);
     }
 
     transition(name){
-        this.game.scene.start(name);
+        MainGame.game.scene.start(name);
     }
 }
 
-export default ScreenManager;
+export default (new ScreenManager);
