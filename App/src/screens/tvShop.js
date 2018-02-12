@@ -5,7 +5,6 @@ import Inventory from '../common/inventory'
 import Screen from '../common/screen'
 import Player from '../Player'
 
-
 class TVShop extends Screen{
     constructor(context){
         super();
@@ -26,15 +25,13 @@ class TVShop extends Screen{
     create(){
         super.create();
         this.initItemList();
+        this.grp = this.group.add();
+        this.background = this.grp.create(512, 384, 'background_home');
+        console.log(this.grp);
 
-        this.background = this.ctx.add.image(1024, 768, "background_home");
-        console.log(this.group.add());
-        this.background.x = 512;
-        this.background.y = 384;
-
-        // this.title = this.ctx.add.bitmapText(280, 200, 'Font', "Call Sell Network", 46 );
-        // this.title.tint = "0x00ffff";
-        // this.updateItemListText();
+        this.title = this.ctx.add.bitmapText(280, 200, 'Font', "Call Sell Network", 46 );
+        this.title.tint = "0x00ffff";
+        this.updateItemListText();
         this.keyA = this.ctx.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
 
     }

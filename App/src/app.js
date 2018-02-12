@@ -1,2 +1,1 @@
-import MainGame from './MainGame';
-MainGame();
+import {mainGame} from './MainGame';

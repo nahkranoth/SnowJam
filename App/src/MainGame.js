@@ -21,7 +21,7 @@ class MainGame {
             }
         };
 
-        this.game = new Phaser.Game(this.config);
+        this.game = new phaser.Game(this.config);
     }
 
     update(){
@@ -44,10 +44,7 @@ class MainGame {
 
     create(){
         ScreenManager.init();
-        ScreenManager.transition("Main");
     }
 }
 
-export default (new MainGame);
-
-
+export let mainGame = new MainGame();

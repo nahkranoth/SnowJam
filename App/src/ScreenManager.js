@@ -1,14 +1,14 @@
-import MainScene from './screens/main'
-import MainGame from './MainGame'
+import MainScreen from './screens/main'
+import {mainGame} from './MainGame'
 
 class ScreenManager{
 
     init(){
-        MainGame.game.scene.add("Main", MainScene);
+        mainGame.game.scene.add("Main", MainScreen, true);
     }
 
     transition(name){
-        MainGame.game.scene.start(name);
+        mainGame.game.scene.start(name);
     }
 }
 
