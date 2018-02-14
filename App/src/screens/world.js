@@ -1,8 +1,5 @@
-import Screen from '../common/screen'
-
-class World extends Screen{
+class World{
     constructor(context){
-        super();
         this.ctx = context;
         this.create();
     }
@@ -11,6 +8,9 @@ class World extends Screen{
         this.background.x = 512;
         this.background.y = 384;
         this.keyA = this.ctx.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+    }
+    destroy(){
+        this.ctx.input.keyboard.removeKey(Phaser.Input.Keyboard.KeyCodes.A);
     }
     update(){
         if(this.keyA.isDown){

@@ -1,8 +1,8 @@
 import MainGame from './MainGame'
 
 class DialogueManager {
-	constructor() {
-		this.game = MainGame.game
+	constructor(context) {
+		// this.game = MainGame.game
 	}
 
 	loadDialogues() {

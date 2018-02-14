@@ -1,12 +1,17 @@
 import TVShop from '../screens/tvShop'
 import World from '../screens/world'
+import Inventory from '../common/inventory'
+import {mainGame} from '../MainGame'
+
 
 class MainScreen {
     constructor(){
         this.screens = [
             {name:"TVShop", class:TVShop},
             {name:"World", class:World}
-        ]
+        ];
+
+        mainGame.game.scene.add("Inventory", Inventory, true);
     }
 
     getScreen(name){
@@ -18,20 +23,25 @@ class MainScreen {
         }
     }
 
+    preload(){
+        this.load.bitmapFont('Font', 'assets/fonts/font.png', 'assets/fonts/font.fnt');
+    }
+
     create(){
-        this.screen = new TVShop(this);
+        // this.screen = new TVShop(this);
+        // this.inventory = new Inventory(this);
     }
 
     transitionToScreen(name){
         this.screen.destroy();
         console.log("transition to screen: "+name);
         let klass = this.getScreen(name).class;
-        this.screen = new klass(this).create();
+        // this.screen = new klass(this);
         console.log(this.screen);
     }
 
     update(){
-        this.screen.update();
+        // this.screen.update();
     }
 }
 

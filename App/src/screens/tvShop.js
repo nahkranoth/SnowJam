@@ -1,13 +1,9 @@
-import ScreenManager from '../ScreenManager'
 import TextButton from '../components/textButton'
-import MainScreen from '../screens/main'
 import Inventory from '../common/inventory'
-import Screen from '../common/screen'
 import Player from '../Player'
 
-class TVShop extends Screen{
+class TVShop{
     constructor(context){
-        super();
         this.ctx = context;
         this.group = this.ctx.add.group();
         this.group.create(1024,768, 'group');
@@ -23,21 +19,17 @@ class TVShop extends Screen{
     }
 
     create(){
-        super.create();
         this.initItemList();
-        this.grp = this.group.add();
-        this.background = this.grp.create(512, 384, 'background_home');
-        console.log(this.grp);
-
+        this.background = this.group.create(512, 384, 'background_home');
         this.title = this.ctx.add.bitmapText(280, 200, 'Font', "Call Sell Network", 46 );
         this.title.tint = "0x00ffff";
         this.updateItemListText();
         this.keyA = this.ctx.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-
     }
 
     destroy(){
         this.group.destroy();
+        this.ctx.input.keyboard.removeKey(Phaser.Input.Keyboard.KeyCodes.A);
     }
 
     updateItemListText(){

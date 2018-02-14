@@ -1,6 +1,6 @@
 import Player from '../Player'
+import {mainGame} from '../MainGame'
 
-let instance = null;
 let slots = [
     {
         item_name:"inventory_key",
@@ -20,23 +20,28 @@ let slots = [
     }
 ];
 
-const slot_y_pos = 768-98/2;
-class Inventory{
+let ui_height = 98;
+let slot_pos = 50;
 
-    init(context) {
+class Inventory extends Phaser.Scene{
+
+    constructor() {
+        super({ key: 'Inventory' });
     }
 
-    render(context){
-        this.ctx = context;
-        this.ctx.background = this.ctx.add.image(1024, 98, "inventory");
-        this.ctx.background.x = 1024/2;
-        this.ctx.background.y = 768-98/2;
-        this.ctx.background.setDepth(1000);
+    create(){
+        this.background = this.add.sprite(0, mainGame.game.canvas.height-ui_height, "inventory").setOrigin(0);
+        this.background.setDepth(1000);
         for(let i=0;i<slots.length;i++){
             this.drawItem(slots[i]);
         }
         this.setMoney(Player.money);
-
+    }
+    preload(){
+        this.load.image('inventory', 'assets/inventory.png');
+        this.load.image('inventory_key', 'assets/inventoryUI/key.png');
+        this.load.image('inventory_alf_pogs', 'assets/inventoryUI/alf_pogs.png');
+        this.load.bitmapFont('Font', 'assets/fonts/font.png', 'assets/fonts/font.fnt');
     }
     setItem(slot, item){
         slots[slot].item_name = item;
@@ -44,18 +49,17 @@ class Inventory{
     }
     setMoney(){
         let text = Player.money.toString() + " Money";
-        this.money = this.ctx.add.bitmapText(30, 30, 'Font', text, 46 );
+        this.money = this.add.bitmapText(30, 30, 'Font', text, 46 );
         this.money.tint = "0xffffff";
         this.money.setDepth(1002);
     }
     drawItem(slot){
         if(slot.item_name == "") return;
-        let inventory_slot = this.ctx.add.image(56, 56, slot.item_name);
+        let inventory_slot = this.add.sprite(56, mainGame.game.canvas.height-slot_pos, slot.item_name);
         inventory_slot.x = slot.pos_x;
-        inventory_slot.y = slot_y_pos;
         inventory_slot.setDepth(1001);
 
     }
 }
 
-export default (new Inventory);
+export default Inventory;
