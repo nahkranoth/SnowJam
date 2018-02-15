@@ -10,8 +10,7 @@ class MainScreen {
             {name:"TVShop", class:TVShop},
             {name:"World", class:World}
         ];
-
-        mainGame.game.scene.add("Inventory", Inventory, true);
+        console.log("main screen");
     }
 
     getScreen(name){
@@ -28,16 +27,11 @@ class MainScreen {
     }
 
     create(){
-        // this.screen = new TVShop(this);
-        // this.inventory = new Inventory(this);
     }
 
     transitionToScreen(name){
-        this.screen.destroy();
-        console.log("transition to screen: "+name);
-        let klass = this.getScreen(name).class;
+        // let klass = this.getScreen(name).class;
         // this.screen = new klass(this);
-        console.log(this.screen);
     }
 
     update(){

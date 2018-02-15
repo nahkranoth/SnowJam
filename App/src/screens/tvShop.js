@@ -1,60 +1,66 @@
-import TextButton from '../components/textButton'
-import Inventory from '../common/inventory'
 import Player from '../Player'
+import TextButton from '../common/textButton'
+import {mainGame} from '../MainGame'
 
-class TVShop{
-    constructor(context){
-        this.ctx = context;
-        this.group = this.ctx.add.group();
-        this.group.create(1024,768, 'group');
-        this.create();
-    }
-    initItemList(){
-        this.itemShopList = [
-            {text:"Spatula $10", price:10, inventory:false},
-            {text:"Telescope $100", price:100, inventory:false},
-            {text:"Alf Pogs $5", price:5, inventory:{ image:"inventory_alf_pogs" }},
-            {text:"Hypno-Ray $100000", price:100000, inventory:true}
-        ];
+class TVShop extends Phaser.Scene{
+
+    constructor() {
+        super({ key: 'TVShop' });
     }
 
     create(){
-        this.initItemList();
-        this.background = this.group.create(512, 384, 'background_home');
-        this.title = this.ctx.add.bitmapText(280, 200, 'Font', "Call Sell Network", 46 );
+        this.itemShopList = [
+            {text:"Spatula $10", price:10, inventory:false, bought:false, btn:null},
+            {text:"Telescope $100", price:100, inventory:false, bought:false, btn:null},
+            {text:"Alf Pogs $5", price:5, inventory:{ image:"inventory_alf_pogs" }, bought:false, btn:null},
+            {text:"Castle Grayskull $100000", price:100000, inventory:true, bought:false, btn:null}
+        ];
+
+        this.background = this.add.sprite(0, 0, "background").setOrigin(0);
+        this.background.scaleX = mainGame.game.canvas.width / this.background.width;
+        this.background.scaleY = mainGame.game.canvas.height / this.background.height;
+
+        this.title = this.add.bitmapText(167, 150, 'Font', "Call Sell Network", 42 );
         this.title.tint = "0x00ffff";
         this.updateItemListText();
-        this.keyA = this.ctx.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-    }
 
-    destroy(){
-        this.group.destroy();
-        this.ctx.input.keyboard.removeKey(Phaser.Input.Keyboard.KeyCodes.A);
     }
 
     updateItemListText(){
-        const listTop = 300;
+        const listTop = 230;
         const lineHeight = 64;
         for(let i=0;i<this.itemShopList.length;i++){
-            new TextButton(this.ctx, 260, listTop + (i*lineHeight+5), this.itemShopList[i].text, this.onSelectedMenuItem.bind(this), {id:i});
+            this.itemShopList[i].btn = new TextButton(this, 200, listTop + (i*lineHeight+5), this.itemShopList[i].text, 32, this.onSelectedMenuItem.bind(this), {id:i});
         }
     }
 
     onSelectedMenuItem(obj){
+        let inventory = mainGame.game.scene.keys.Inventory;
+
         let selectedItem = this.itemShopList[obj.id];
-        if(selectedItem.price <= Player.money){
+        if(selectedItem.price <= Player.money && !selectedItem.bought){
             if(selectedItem.inventory){
-                Inventory.setItem(1, selectedItem.inventory.image);
-                Player.money -= selectedItem.price;
-                Inventory.setMoney();
+                inventory.setItem(1, selectedItem.inventory.image);
             }
+            selectedItem.btn.setColor(0x00ff00);
+            selectedItem.bought = true;
+            Player.money -= selectedItem.price;
+            inventory.setMoney();
+        }else if(selectedItem.price >= Player.money){
+            selectedItem.btn.setColor(0xff0000);
+            inventory.money.tint = 0xff0000;
+            setTimeout(() => {
+                selectedItem.btn.setColor(0xffffff);
+            }, 200);
+            setTimeout(() => {
+                inventory.money.tint = 0xffffff;
+            },300)
         }
     }
 
-    update(){
-        if(this.keyA.isDown){
-            this.ctx.transitionToScreen("World");
-        }
+    preload(){
+        this.load.image('background', 'assets/HomeCallSellNetwork.png');
+        this.load.bitmapFont('Font', 'assets/fonts/font.png', 'assets/fonts/font.fnt');
     }
 }
 
